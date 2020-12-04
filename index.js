@@ -12,6 +12,8 @@ function copiar_valor (id) {
     reacciones = id;
 }
 
+
+
 function reproducir_audio (mensaje, user, ruta) {
     clearTimeout(timeoutID);
     let canal = mensaje.channel.members.get(user.id).voice.channel;
