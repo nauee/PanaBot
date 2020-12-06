@@ -96,7 +96,7 @@ client.on('ready', () => {
                         },
                         {
                             name: "La re chucha de tato",
-                            value: "**----------------⚽️----------------**"
+                            value: "**----------------👺----------------**"
                         },
                         {
                             name: "Donde esta Braulio",
@@ -148,7 +148,7 @@ client.on('ready', () => {
                         message.react('🥣');
                         message.react('🐵');
                         message.react('🧨');
-                        message.react('⚽️');
+                        message.react('👺');
                         message.react('❓');
                         message.react('💩');
                         message.react('💬');
@@ -278,7 +278,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
             ReproducirAudio(mensaje, user, './src/BolasDeMono.mp3');
         } else if (emoji.name == '🧨') {
             ReproducirAudio(mensaje, user, './src/HolaVendesChaskibum.mp3');
-        } else if (emoji.name == '⚽️') {
+        } else if (emoji.name == '👺') {
             ReproducirAudio(mensaje, user, './src/LaReChuchaDeTato.mp3');
         } else if (emoji.name == '❓') {
             ReproducirAudio(mensaje, user, './src/DondeEstaBraulio.mp3');
