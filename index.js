@@ -91,6 +91,46 @@ client.on('ready', () => {
                             value: "**----------------🐵----------------**"
                         },
                         {
+                            name: "Vendes chaskibun",
+                            value: "**----------------🧨----------------**"
+                        },
+                        {
+                            name: "La re chucha de tato",
+                            value: "**----------------⚽️----------------**"
+                        },
+                        {
+                            name: "Donde esta Braulio",
+                            value: "**----------------❓----------------**"
+                        },
+                        {
+                            name: "Cacona",
+                            value: "**----------------💩----------------**"
+                        },
+                        {
+                            name: "Contestame flaco",
+                            value: "**----------------💬----------------**"
+                        },
+                        {
+                            name: "Agachate y conocelo",
+                            value: "**----------------🧎‍♂️----------------**"
+                        },
+                        {
+                            name: "Que te reis zapato",
+                            value: "**----------------🤣----------------**"
+                        },
+                        {
+                            name: "Watafak",
+                            value: "**----------------⁉️----------------**"
+                        },
+                        {
+                            name: "Um siri fazendo barra",
+                            value: "**----------------🦀----------------**"
+                        },
+                        {
+                            name: "Que tipo rustico",
+                            value: "**----------------🤠----------------**"
+                        },
+                        {
                             name: "El sueno de FerB",
                             value: "**----------------🥟----------------**"
                         },
@@ -107,6 +147,16 @@ client.on('ready', () => {
                         message.react('😀');
                         message.react('🥣');
                         message.react('🐵');
+                        message.react('🧨');
+                        message.react('⚽️');
+                        message.react('❓');
+                        message.react('💩');
+                        message.react('💬');
+                        message.react('🧎‍♂️');
+                        message.react('🤣');
+                        message.react('⁉️');
+                        message.react('🦀');
+                        message.react('🤠');
                         message.react('🥟');
                         message.react('❌');
                         CopiarValorReacciones(message.id);
@@ -122,7 +172,6 @@ client.on('message', message => {
     if (message.author == client.user) {
         return
     }
-    console.log(reacciones);
     let mensaje = message.content.toLowerCase();
     if (mensaje.startsWith('&pelado') || mensaje.startsWith('panabot pelado')) {
         let pelos = Math.floor(Math.random() * 101);
@@ -227,6 +276,26 @@ client.on('messageReactionAdd', async (reaction, user) => {
             ReproducirAudio(mensaje, user, './src/EnanoCajetudo.mp3')
         } else if (emoji.name == '🐵') {
             ReproducirAudio(mensaje, user, './src/BolasDeMono.mp3');
+        } else if (emoji.name == '🧨') {
+            ReproducirAudio(mensaje, user, './src/HolaVendesChaskibum.mp3');
+        } else if (emoji.name == '⚽️') {
+            ReproducirAudio(mensaje, user, './src/LaReChuchaDeTato.mp3');
+        } else if (emoji.name == '❓') {
+            ReproducirAudio(mensaje, user, './src/DondeEstaBraulio.mp3');
+        } else if (emoji.name == '💩') {
+            ReproducirAudio(mensaje, user, './src/Cacona.mp3');
+        } else if (emoji.name == '💬') {
+            ReproducirAudio(mensaje, user, './src/ContestameFlaco.mp3');
+        } else if (emoji.name == '🧎‍♂️') {
+            ReproducirAudio(mensaje, user, './src/AgachateYConocelo.mp3');
+        } else if (emoji.name == '🤣') {
+            ReproducirAudio(mensaje, user, './src/QueTeReisZapato.mp3');
+        } else if (emoji.name == '⁉️') {
+            ReproducirAudio(mensaje, user, './src/Watafak.mp3');
+        } else if (emoji.name == '🦀') {
+            ReproducirAudio(mensaje, user, './src/SiriFazendoBarra.mp3');
+        } else if (emoji.name == '🤠') {
+            ReproducirAudio(mensaje, user, './src/QueTipoRustico.mp3');
         } else if (emoji.name == '🥟') {
             ReproducirYoutube(mensaje, user);
         } else if (emoji.name == '❌') {
