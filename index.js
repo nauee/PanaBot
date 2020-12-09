@@ -132,7 +132,7 @@ client.on('ready', () => {
                         },
                         {
                             name: "Bueeeenas",
-                            value: "**----------------👋----------------**"
+                            value: "**----------------✋----------------**"
                         },
                         {
                             name: "Noooo sos un pelotudo",
@@ -165,7 +165,7 @@ client.on('ready', () => {
                         message.react('⁉️');
                         message.react('🦀');
                         message.react('🤠');
-                        message.react('👋');
+                        message.react('✋');
                         message.react('😤');
                         message.react('🥟');
                         message.react('❌');
@@ -306,8 +306,6 @@ client.on('messageReactionAdd', async (reaction, user) => {
             ReproducirAudio(mensaje, user, './src/SiriFazendoBarra.mp3');
         } else if (emoji.name == '🤠') {
             ReproducirAudio(mensaje, user, './src/QueTipoRustico.mp3');
-        } else if (emoji.name = '👋') {
-            ReproducirAudio(mensaje, user, './src/Buenas.mp3');
         } else if (emoji.name == '😤') {
             ReproducirAudio(mensaje, user ,'./src/SosUnPelotudo.mp3');
         } else if (emoji.name == '🥟') {
@@ -318,6 +316,8 @@ client.on('messageReactionAdd', async (reaction, user) => {
             if (canal) {
                 canal.leave();
             }
+        } else if (emoji.name == '✋') {
+            ReproducirAudio(mensaje, user, './src/Buenas.mp3');
         }
         reaction.users.remove(user.id);
     }
