@@ -131,6 +131,14 @@ client.on('ready', () => {
                             value: "**----------------🤠----------------**"
                         },
                         {
+                            name: "Bueeeenas",
+                            value: "**----------------👋----------------**"
+                        },
+                        {
+                            name: "Noooo sos un pelotudo",
+                            value: "**----------------😤----------------**"
+                        },
+                        {
                             name: "El sueno de FerB",
                             value: "**----------------🥟----------------**"
                         },
@@ -157,6 +165,8 @@ client.on('ready', () => {
                         message.react('⁉️');
                         message.react('🦀');
                         message.react('🤠');
+                        message.react('👋');
+                        message.react('😤');
                         message.react('🥟');
                         message.react('❌');
                         CopiarValorReacciones(message.id);
@@ -296,6 +306,10 @@ client.on('messageReactionAdd', async (reaction, user) => {
             ReproducirAudio(mensaje, user, './src/SiriFazendoBarra.mp3');
         } else if (emoji.name == '🤠') {
             ReproducirAudio(mensaje, user, './src/QueTipoRustico.mp3');
+        } else if (emoji.name = '👋') {
+            ReproducirAudio(mensaje, user, './src/Buenas.mp3');
+        } else if (emoji.name == '😤') {
+            ReproducirAudio(mensaje, user ,'./src/SosUnPelotudo.mp3');
         } else if (emoji.name == '🥟') {
             ReproducirYoutube(mensaje, user);
         } else if (emoji.name == '❌') {
