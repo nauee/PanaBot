@@ -7,6 +7,7 @@ const empanada_de_polenta = require("./src/empanada_de_polenta.json");
 const timeoutTime = 15 * 60 * 1000;
 let timeoutID;
 var reacciones = 0;
+var buenas = true;
 
 function CopiarValorReacciones(id) {
     reacciones = id;
@@ -256,12 +257,21 @@ client.on('message', message => {
                     value: "Parabens"
                 },
                 {
+                    name: "Buenas / Malas",
+                    value: "Activar / Desactivar bueeeeeenas"
+                },{
                     name: "Comandos",
                     value: "Es lo que acabas de escribir zapato"
                 }
                 ],
             }
         })
+    } else if (mensaje.startsWith('&buenas') || mensaje.startsWith('panabot buenas')) {
+        buenas = true;
+        message.channel.send ("**Saludo activado**");
+    } else if (mensaje.startsWith('&malas') || mensaje.startsWith('panabot malas')) {
+        buenas = false;
+        message.channel.send ("**Saludo desactivado**");
     }
 });
 
@@ -322,6 +332,32 @@ client.on('messageReactionAdd', async (reaction, user) => {
         reaction.users.remove(user.id);
     }
 
+});
+
+client.on("voiceStateUpdate", (oldState, newState) => {
+    let canalViejo = oldState.channel;
+    let canalNuevo = newState.channel;
+    if (!buenas) {
+        return;
+    }
+    if (canalViejo != canalNuevo) {
+        if (canalNuevo !== null && canalViejo === null) {
+            let cantidadUsuarios = canalNuevo.members.filter(member => !member.user.bot).array().length;
+            if (cantidadUsuarios < 2) {
+                return;
+            }
+            if (!oldState.guild.voiceConnection) {
+                newState.channel.join().then(connection => {
+                    const dispatcher = connection.play('./src/Buenas.mp3', { volume: 0.5 });
+                    dispatcher.on("finish", () => {
+                        timeoutID = setTimeout(() => {
+                            newState.leave();
+                        }, timeoutTime)
+                    });
+                }).catch(error => console.log(error));
+            }
+        }
+    }
 });
 
 client.login(config.BOT_TOKEN);
