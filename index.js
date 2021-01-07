@@ -260,6 +260,9 @@ client.on('message', message => {
                     name: "Buenas / Malas",
                     value: "Activar / Desactivar bueeeeeenas"
                 },{
+                    name: "Ruleta",
+                    value: "Elegi entre distintas opciones (separa las opciones con ,)"
+                },{
                     name: "Comandos",
                     value: "Es lo que acabas de escribir zapato"
                 }
@@ -272,6 +275,15 @@ client.on('message', message => {
     } else if (mensaje.startsWith('&malas') || mensaje.startsWith('panabot malas')) {
         buenas = false;
         message.channel.send ("**Saludo desactivado**");
+    } else if (mensaje.startsWith('&ruleta')) {
+        let opciones = mensaje.replace('&ruleta', '');
+        if (opciones.length == 0) {
+            message.channel.send ("_Decime las opciones master_, es &ruleta opcion1,opcion2,opcion3,...");
+            return;
+        }
+        opciones = opciones.split(',');
+        let random = Math.floor(Math.random() * (opciones.length));
+        message.channel.send ("La opcion elegida es: **" + opciones[random] + "**");
     }
 });
 
