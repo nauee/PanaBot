@@ -5,9 +5,32 @@ const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION']
 const empanada_de_polenta = require("./src/empanada_de_polenta.json");
 
 const timeoutTime = 15 * 60 * 1000;
+const canal_sonidos = 'sonidos';
 let timeoutID;
 var reacciones = 0;
 var buenas = true;
+var usar_tts = false;
+
+const respuestas = [
+    "obvio pa",
+    "si",
+    "seee",
+    "pero claro que si",
+    "sin lugar a dudas",
+    "y yo que se master",
+    "hace falta que te lo diga?",
+    "probablemente",
+    "puede ser",
+    "indefinido",
+    "capaz",
+    "confuso",
+    "dudoso",
+    "no",
+    "ni ahi",
+    "no chinchu",
+    "no es por ahi",
+    "y no capo",
+];
 
 function CopiarValorReacciones(id) {
     reacciones = id;
@@ -66,7 +89,7 @@ function ReproducirYoutube(mensaje, user) {
 }
 
 client.on('ready', () => {
-    let canal = client.channels.cache.find(channel => channel.name === 'sonidos');
+    let canal = client.channels.cache.find(channel => channel.name === canal_sonidos);
     canal.messages.fetchPinned()
         .then(messages => {
             if (messages.size == 0) {
@@ -193,15 +216,26 @@ client.on('message', message => {
     if (message.author == client.user) {
         return
     }
+
     let mensaje = message.content.toLowerCase();
     if (mensaje.startsWith('&pelado') || mensaje.startsWith('panabot pelado')) {
+        var nombre = mensaje.split("pelado ", 2);
         let pelos = Math.floor(Math.random() * 101);
-        message.channel.send("**" + message.author.username + "**" + " está un " + pelos + "% pelado");
-    } else if (mensaje.startsWith('&plandeestudios') || mensaje.startsWith('panabot plandeestudios')) {
+        if (!nombre[1])
+            message.channel.send("**" + message.author.username + "**" + " está un " + pelos + "% pelado");
+        else
+            message.channel.send("**" + nombre[1] + "**" + " está un " + pelos + "% pelado");
+    } 
+    
+    else if (mensaje.startsWith('&plandeestudios') || mensaje.startsWith('panabot plandeestudios')) {
         message.channel.send("Toma chinchu, cualquier cosa le decis al otro panabot\n https://fdelmazo.github.io/FIUBA-Map/");
-    } else if (mensaje.startsWith('&parcial') || mensaje.startsWith('panabot parcial')) {
+    } 
+    
+    else if (mensaje.startsWith('&parcial') || mensaje.startsWith('panabot parcial')) {
         message.channel.send("**_Éxitos!._**");
-    } else if (mensaje.startsWith('&cumpleaños') || mensaje.startsWith('panabot cumpleaños')) {
+    } 
+    
+    else if (mensaje.startsWith('&cumpleaños') || mensaje.startsWith('panabot cumpleaños')) {
         message.channel.send({
             embed: {
                 color: 3447003,
@@ -244,7 +278,54 @@ client.on('message', message => {
                 ],
             }
         })
-    } else if (mensaje.startsWith('&comandos') || mensaje.startsWith('panabot comandos')) {
+    } 
+    
+    else if (mensaje.startsWith('&buenas') || mensaje.startsWith('panabot buenas')) {
+        buenas = true;
+        message.channel.send ("**Saludo activado**");
+    } 
+    
+    else if (mensaje.startsWith('&malas') || mensaje.startsWith('panabot malas')) {
+        buenas = false;
+        message.channel.send ("**Saludo desactivado**");
+    } 
+    
+    else if (mensaje.startsWith('&ruleta')) {
+        let opciones = mensaje.replace('&ruleta', '');
+        if (opciones.length == 0) {
+            message.channel.send ("_Decime las opciones master_, es &ruleta opcion1,opcion2,opcion3,...");
+            return;
+        }
+        opciones = opciones.split(',');
+        let random = Math.floor(Math.random() * (opciones.length));
+        message.channel.send ("**" + opciones[random] + "**", {
+            tts: usar_tts 
+        });
+    } 
+    
+    else if (mensaje.startsWith('&pregunta')) {
+        var pregunta = mensaje.split(" ", 2);
+        if (!pregunta[1])
+            message.channel.send("_Te olvidaste la pregunta master_");
+        else {
+            message.channel.send("**_" + respuestas[Math.floor(Math.random() * respuestas.length)] + "_**", {
+                tts: usar_tts   
+            });
+        }
+    }
+
+    else if (mensaje.startsWith('&tts')) {
+        if (usar_tts === true) {
+            usar_tts = false;
+            message.channel.send ("**Voz desactivada**");
+        }
+        else {
+            usar_tts = true;
+            message.channel.send ("**Voz activada**");
+        }
+    }
+
+    else if (mensaje.startsWith('&comandos') || mensaje.startsWith('panabot comandos')) {
         message.channel.send({
             embed: {
                 color: 3447003,
@@ -269,38 +350,35 @@ client.on('message', message => {
                 {
                     name: "Buenas / Malas",
                     value: "Activar / Desactivar bueeeeeenas"
-                },{
+                },
+                {
                     name: "Ruleta",
                     value: "Elegi entre distintas opciones (separa las opciones con ,)"
-                },{
+                },
+                {
+                    name: "Pregunta",
+                    value: "Haceme una pregunta de si o no"
+                },
+                {
+                    name: "tts",
+                    value: "Activar/desactivar tts en ruleta y pregunta"
+                },
+                {
                     name: "Comandos",
                     value: "Es lo que acabas de escribir zapato"
                 }
                 ],
             }
         })
-    } else if (mensaje.startsWith('&buenas') || mensaje.startsWith('panabot buenas')) {
-        buenas = true;
-        message.channel.send ("**Saludo activado**");
-    } else if (mensaje.startsWith('&malas') || mensaje.startsWith('panabot malas')) {
-        buenas = false;
-        message.channel.send ("**Saludo desactivado**");
-    } else if (mensaje.startsWith('&ruleta')) {
-        let opciones = mensaje.replace('&ruleta', '');
-        if (opciones.length == 0) {
-            message.channel.send ("_Decime las opciones master_, es &ruleta opcion1,opcion2,opcion3,...");
-            return;
-        }
-        opciones = opciones.split(',');
-        let random = Math.floor(Math.random() * (opciones.length));
-        message.channel.send ("La opcion elegida es: **" + opciones[random] + "**");
-    }
+    } 
+
 });
 
 client.on('messageReactionAdd', async (reaction, user) => {
 
     let mensaje = reaction.message;
     let emoji = reaction.emoji;
+    if (mensaje.channel.name != canal_sonidos) return;
 
     if (!user.bot) {
         if (mensaje.partial) {
@@ -367,7 +445,7 @@ client.on("voiceStateUpdate", (oldState, newState) => {
         return;
     }
     if (canalViejo != canalNuevo) {
-        if (canalNuevo !== null && canalViejo === null) {
+        if (canalNuevo !== null && canalViejo === null && !newState.member.user.bot) {
             let cantidadUsuarios = canalNuevo.members.filter(member => !member.user.bot).array().length;
             if (cantidadUsuarios < 2) {
                 return;
