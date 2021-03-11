@@ -305,9 +305,9 @@ client.on('message', message => {
     
     else if (mensaje.startsWith('&pregunta')) {
         var pregunta = mensaje.split(" ", 2);
-        if (!pregunta[1])
+        if (!pregunta[1]) {
             message.channel.send("_Te olvidaste la pregunta master_");
-        else if (pregunta[1].startsWith("sale")) {
+        } else if (pregunta[1].startsWith("sale")) {
             message.channel.send("**_sale._**", {
                 tts: usar_tts   
             });
