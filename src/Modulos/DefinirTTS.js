@@ -1,12 +1,10 @@
 const definirTTS = (message, usar_tts) => {
-    if (usar_tts === true) {
-        usar_tts = false;
+    if (usar_tts) {
         message.channel.send("**Voz desactivada**");
-    }
-    else {
-        usar_tts = true;
+    } else {
         message.channel.send("**Voz activada**");
     }
+    return !usar_tts;
 }
 
 export default definirTTS;

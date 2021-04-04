@@ -1,13 +1,13 @@
 const saludar = (oldState, newState, buenas) => {
-    let canalViejo = oldState.channel;
-    let canalNuevo = newState.channel;
+    let oldChannel = oldState.channel;
+    let newChannel = newState.channel;
     if (!buenas) {
         return;
     }
-    if (canalViejo != canalNuevo) {
-        if (canalNuevo !== null && canalViejo === null && !newState.member.user.bot) {
-            let cantidadUsuarios = canalNuevo.members.filter(member => !member.user.bot).array().length;
-            if (cantidadUsuarios < 2) {
+    if (oldChannel != newChannel) {
+        if (newChannel !== null && oldChannel === null && !newState.member.user.bot) {
+            let usersAmount = newChannel.members.filter(member => !member.user.bot).array().length;
+            if (usersAmount < 2) {
                 return;
             }
             if (!oldState.guild.voiceConnection) {

@@ -1,7 +1,10 @@
-const definirSaludo = (message, valor) => {
-    if (valor) message.channel.send("**Saludo activado**");
-    else message.channel.send("**Saludo desactivado**");
-    return valor;
+const definirSaludo = (message, buenas) => {
+    if (buenas) {
+        message.channel.send("**Saludo desactivado**");
+    } else {
+        message.channel.send("**Saludo activado**");
+    }
+    return !buenas;
 }
 
 export default definirSaludo;

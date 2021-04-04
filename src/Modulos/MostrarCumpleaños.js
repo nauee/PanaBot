@@ -24,6 +24,11 @@ const mostrarCumpleaños = (message) => {
                 inline: true
             },
             {
+                name: "Filita",
+                value: "4 de agosto",
+                inline: true
+            },
+            {
                 name: "Mate",
                 value: "14 de agosto",
                 inline: true

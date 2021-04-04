@@ -35,15 +35,13 @@ client.on('message', message => {
     } else if (mensaje.startsWith('&cumpleaños') || mensaje.startsWith('panabot cumpleaños')) {
         mostrarCumpleaños (message);
     } else if (mensaje.startsWith('&buenas') || mensaje.startsWith('panabot buenas')) {
-        buenas = definirSaludo (message, true);
-    } else if (mensaje.startsWith('&malas') || mensaje.startsWith('panabot malas')) {
-        buenas = definirSaludo (message, false);
+        buenas = definirSaludo (message, buenas);
     } else if (mensaje.startsWith('&ruleta')) {
         ruleta (message, usar_tts);
     } else if (mensaje.startsWith('&pregunta')) {
         preguntarAlBot(message, usar_tts);
     } else if (mensaje.startsWith('&tts')) {
-        definirTTS (message, usar_tts);
+        usar_tts = definirTTS (message, usar_tts);
     } else if (mensaje.startsWith('&comandos') || mensaje.startsWith('panabot comandos')) {
         listarComandos (message);
     } 
