@@ -1,49 +1,22 @@
+import data from '../Datos/cumpleañitos.js'
+
+const meses = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre']
+
 const mostrarCumpleaños = (message) => {
+  const embedFields = []
+  data.cumpleaños.forEach((value) => {
+    const insert = {
+      name: value.nombre,
+      value: `${value.cumpleaños.getUTCDate()} de ${meses[value.cumpleaños.getUTCMonth()]}`,
+      inline: true
+    }
+    embedFields.push(insert)
+  })
   message.channel.send({
     embed: {
       color: 3447003,
       title: 'Cumpleañitos',
-      fields: [{
-        name: 'MotoMelzr',
-        value: '8 de Febrero',
-        inline: true
-      },
-      {
-        name: 'ferbalmaceda23',
-        value: '20 de marzo',
-        inline: true
-      },
-      {
-        name: 'NicoPhyton',
-        value: '27 de abril',
-        inline: true
-      },
-      {
-        name: 'Naue',
-        value: '13 de mayo',
-        inline: true
-      },
-      {
-        name: 'Filita',
-        value: '4 de agosto',
-        inline: true
-      },
-      {
-        name: 'Mate',
-        value: '14 de agosto',
-        inline: true
-      },
-      {
-        name: 'JoacoBot',
-        value: '10 de noviembre',
-        inline: true
-      },
-      {
-        name: 'AgusBro',
-        value: '27 de diciembre',
-        inline: true
-      }
-      ]
+      fields: embedFields
     }
   })
 }

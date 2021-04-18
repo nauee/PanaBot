@@ -10,15 +10,18 @@ import pelado from './src/Modulos/Pelado.js'
 import reacciones from './src/Modulos/Reacciones.js'
 import inicializarMensaje from './src/Modulos/MensajeReacciones.js'
 import saludar from './src/Modulos/Saludar.js'
+import checkCumpleaños from './src/Modulos/FelizCumpleaños.js'
 
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] })
 const canalSonidos = 'sonidos'
+const canalGeneral = 'la-filita'
 let timeoutID
 let buenas = true
 let usarTTS = false
 
 client.on('ready', () => {
   inicializarMensaje(client, canalSonidos)
+  checkCumpleaños(client, canalGeneral)
 })
 
 client.on('message', message => {
