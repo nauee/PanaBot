@@ -47,6 +47,9 @@ client.on('message', message => {
     usarTTS = definirTTS(message, usarTTS)
   } else if (mensaje.startsWith('&comandos') || mensaje.startsWith('panabot comandos')) {
     listarComandos(message)
+  } else if (mensaje.startsWith('&reset')) {
+    inicializarMensaje(client, canalSonidos)
+    message.delete()
   }
 })
 

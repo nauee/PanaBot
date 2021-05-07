@@ -61,106 +61,106 @@ const DisconnectBot = (mensaje, user, timeoutID) => {
   }
 }
 
-const botones = new Map()
-botones.set('🤬', {
+const botonesEmpanada = new Map()
+botonesEmpanada.set('🤬', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/NoGritesQueNoVendesNada.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/NoGritesQueNoVendesNada.mp3',
   description: 'No grites que no vendes nada'
 })
-botones.set('😀', {
+botonesEmpanada.set('😀', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/JaJaJa.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/JaJaJa.mp3',
   description: 'Ja Ja Ja'
 })
-botones.set('🥣', {
+botonesEmpanada.set('🥣', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/EnanoCajetudo.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/EnanoCajetudo.mp3',
   description: 'Enano cajetudo'
 })
-botones.set('🐵', {
+botonesEmpanada.set('🐵', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/BolasDeMono.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/BolasDeMono.mp3',
   description: 'Bolas de mono'
 })
-botones.set('🧨', {
+botonesEmpanada.set('🧨', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/HolaVendesChaskibum.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/HolaVendesChaskibum.mp3',
   description: 'Vendes chaskibun'
 })
-botones.set('👺', {
+botonesEmpanada.set('👺', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/LaReChuchaDeTato.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/LaReChuchaDeTato.mp3',
   description: 'La re chucha de tato'
 })
-botones.set('❓', {
+botonesEmpanada.set('❓', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/DondeEstaBraulio.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/DondeEstaBraulio.mp3',
   description: 'Donde esta Braulio'
 })
-botones.set('💩', {
+botonesEmpanada.set('💩', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/Cacona.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/Cacona.mp3',
   description: 'Cacona'
 })
-botones.set('💬', {
+botonesEmpanada.set('💬', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/ContestameFlaco.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/ContestameFlaco.mp3',
   description: 'Contestame flaco'
 })
-botones.set('🧎‍♂️', {
+botonesEmpanada.set('🧎‍♂️', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/AgachateYConocelo.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/AgachateYConocelo.mp3',
   description: 'Agachate y conocelo'
 })
-botones.set('🤣', {
+botonesEmpanada.set('🤣', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/QueTeReisZapato.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/QueTeReisZapato.mp3',
   description: 'Que te reis zapato'
 })
-botones.set('⁉️', {
+botonesEmpanada.set('⁉️', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/Watafak.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/Watafak.mp3',
   description: 'Watafak'
 })
-botones.set('🦀', {
+botonesEmpanada.set('🦀', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/SiriFazendoBarra.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/SiriFazendoBarra.mp3',
   description: 'Um siri fazendo barra'
 })
-botones.set('🤠', {
+botonesEmpanada.set('🤠', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/QueTipoRustico.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/QueTipoRustico.mp3',
   description: 'Que tipo rustico'
 })
-botones.set('✋', {
+botonesEmpanada.set('✋', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/Buenas.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/Buenas.mp3',
   description: 'Bueeeenas'
 })
-botones.set('😤', {
+botonesEmpanada.set('😤', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/SosUnPelotudo.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/SosUnPelotudo.mp3',
   description: 'Noooo sos un pelotudo'
 })
-botones.set('🥚', {
+botonesEmpanada.set('🥚', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/MamaGuevo.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/MamaGuevo.mp3',
   description: 'Mama guevo'
 })
-botones.set('😰', {
+botonesEmpanada.set('😰', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/ReDescansero.mp3',
+  parametros: './src/Datos/Audios/BotonesEmpanada/ReDescansero.mp3',
   description: 'Re Descansero'
 })
-botones.set('🥟', {
+botonesEmpanada.set('🥟', {
   task: PlayYoutube,
   parametros: undefined,
   description: 'El sueno de FerB'
 })
-botones.set('❌', {
+botonesEmpanada.set('❌', {
   task: DisconnectBot,
   parametros: undefined,
   description: 'Desconectar'
 })
 
-export default botones
+export default [botonesEmpanada]

@@ -12,7 +12,7 @@ const saludar = (oldState, newState, timeoutID, buenas) => {
       }
       if (!oldState.guild.voiceConnection) {
         newState.channel.join().then(connection => {
-          const dispatcher = connection.play('./src/Datos/Audios/Buenas.mp3', { volume: 0.5 })
+          const dispatcher = connection.play('./src/Datos/Audios/BotonesEmpanada/Buenas.mp3', { volume: 0.5 })
           dispatcher.on('finish', () => {
             timeoutID = setTimeout(() => {
               newState.leave()
