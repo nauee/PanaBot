@@ -152,6 +152,31 @@ botonesEmpanada.set('😰', {
   parametros: './src/Datos/Audios/BotonesEmpanada/ReDescansero.mp3',
   description: 'Re Descansero'
 })
+botonesEmpanada.set('👋', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesEmpanada/BuenasGaspi.mp3',
+  description: 'Buenas Gaspi'
+})
+botonesEmpanada.set('🤢', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesEmpanada/Nefashto.mp3',
+  description: 'Nefashto'
+})
+botonesEmpanada.set('🤪', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesEmpanada/EshIncreible.mp3',
+  description: 'Esh Increible'
+})
+botonesEmpanada.set('🥴', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesEmpanada/Asahsahssjajsdmaba.mp3',
+  description: 'Asahsahssjajsdmaba'
+})
+botonesEmpanada.set('😅', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesEmpanada/Fernanfloooo.mp3',
+  description: 'Fernanfloo'
+})
 botonesEmpanada.set('🥟', {
   task: PlayYoutube,
   parametros: undefined,
