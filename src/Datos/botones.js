@@ -152,31 +152,6 @@ botonesEmpanada.set('😰', {
   parametros: './src/Datos/Audios/BotonesEmpanada/ReDescansero.mp3',
   description: 'Re Descansero'
 })
-botonesEmpanada.set('👋', {
-  task: PlayAudio,
-  parametros: './src/Datos/Audios/BotonesEmpanada/BuenasGaspi.mp3',
-  description: 'Buenas Gaspi'
-})
-botonesEmpanada.set('🤢', {
-  task: PlayAudio,
-  parametros: './src/Datos/Audios/BotonesEmpanada/Nefashto.mp3',
-  description: 'Nefashto'
-})
-botonesEmpanada.set('🤪', {
-  task: PlayAudio,
-  parametros: './src/Datos/Audios/BotonesEmpanada/EshIncreible.mp3',
-  description: 'Esh Increible'
-})
-botonesEmpanada.set('🥴', {
-  task: PlayAudio,
-  parametros: './src/Datos/Audios/BotonesEmpanada/Asahsahssjajsdmaba.mp3',
-  description: 'Asahsahssjajsdmaba'
-})
-botonesEmpanada.set('😅', {
-  task: PlayAudio,
-  parametros: './src/Datos/Audios/BotonesEmpanada/Fernanfloooo.mp3',
-  description: 'Fernanfloo'
-})
 botonesEmpanada.set('🥟', {
   task: PlayYoutube,
   parametros: undefined,
@@ -188,4 +163,46 @@ botonesEmpanada.set('❌', {
   description: 'Desconectar'
 })
 
-export default [botonesEmpanada]
+const botonesGaspi = new Map()
+botonesGaspi.set('👋', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/BuenasGaspi.mp3',
+  description: 'Buenas Gaspi'
+})
+botonesGaspi.set('🤢', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/Nefashto.mp3',
+  description: 'Nefashto'
+})
+botonesGaspi.set('🤮', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/Nefashto2.mp3',
+  description: 'Nefashto 2'
+})
+botonesGaspi.set('🤪', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/EshIncreible.mp3',
+  description: 'Esh Increible'
+})
+botonesGaspi.set('🥴', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/Asahsahssjajsdmaba.mp3',
+  description: 'Asahsahssjajsdmaba'
+})
+botonesGaspi.set('😅', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/Fernanfloooo.mp3',
+  description: 'Fernanfloo'
+})
+botonesGaspi.set('😵', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/MagnusMefisto.mp3',
+  description: 'Magnus Mefishto'
+})
+botonesGaspi.set('❌', {
+  task: DisconnectBot,
+  parametros: undefined,
+  description: 'Desconectar'
+})
+
+export default [botonesEmpanada, botonesGaspi]
