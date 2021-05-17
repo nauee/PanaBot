@@ -4,7 +4,7 @@ const buscarCumpleañero = () => {
   const fecha = new Date()
   let cumpleañero = ''
   data.cumpleaños.forEach((value) => {
-    if (value.cumpleaños.getUTCDate() === fecha.getUTCDate() && value.cumpleaños.getUTCMonth() === fecha.getUTCMonth() && value.cumpleaños.getHours() >= 3) {
+    if (value.cumpleaños.getUTCDate() === fecha.getUTCDate() && value.cumpleaños.getUTCMonth() === fecha.getUTCMonth() && fecha.getHours() >= 3) {
       cumpleañero = value.nombre
     }
   })

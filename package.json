@@ -13,7 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "discord.js": "^12.5.1",
-    "opusscript": "0.0.8",
+    "opusscript": "^0.0.8",
     "ytdl-core": "^4.5.0"
   },
   "devDependencies": {
