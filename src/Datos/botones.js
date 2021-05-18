@@ -199,6 +199,16 @@ botonesGaspi.set('😵', {
   parametros: './src/Datos/Audios/BotonesGaspi/MagnusMefisto.mp3',
   description: 'Magnus Mefishto'
 })
+botonesGaspi.set('☕', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/QueresCafe.mp3',
+  description: 'Queres cafe nefashto?'
+})
+botonesGaspi.set('💁‍♂️', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/TeGusta.mp3',
+  description: 'Te gusta?'
+})
 botonesGaspi.set('❌', {
   task: DisconnectBot,
   parametros: undefined,
