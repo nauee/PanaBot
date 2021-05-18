@@ -169,6 +169,16 @@ botonesGaspi.set('👋', {
   parametros: './src/Datos/Audios/BotonesGaspi/BuenasGaspi.mp3',
   description: 'Buenas Gaspi'
 })
+botonesGaspi.set('🤪', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/EshIncreible.mp3',
+  description: 'Esh Increible'
+})
+botonesGaspi.set('🥴', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/Asahsahssjajsdmaba.mp3',
+  description: 'Asahsahssjajsdmaba'
+})
 botonesGaspi.set('🤢', {
   task: PlayAudio,
   parametros: './src/Datos/Audios/BotonesGaspi/Nefashto.mp3',
@@ -179,15 +189,10 @@ botonesGaspi.set('🤮', {
   parametros: './src/Datos/Audios/BotonesGaspi/Nefashto2.mp3',
   description: 'Nefashto 2'
 })
-botonesGaspi.set('🤪', {
+botonesGaspi.set('😷', {
   task: PlayAudio,
-  parametros: './src/Datos/Audios/BotonesGaspi/EshIncreible.mp3',
-  description: 'Esh Increible'
-})
-botonesGaspi.set('🥴', {
-  task: PlayAudio,
-  parametros: './src/Datos/Audios/BotonesGaspi/Asahsahssjajsdmaba.mp3',
-  description: 'Asahsahssjajsdmaba'
+  parametros: './src/Datos/Audios/BotonesGaspi/Nefashto3.mp3',
+  description: 'Nefashto 3'
 })
 botonesGaspi.set('😅', {
   task: PlayAudio,
@@ -208,6 +213,21 @@ botonesGaspi.set('💁‍♂️', {
   task: PlayAudio,
   parametros: './src/Datos/Audios/BotonesGaspi/TeGusta.mp3',
   description: 'Te gusta?'
+})
+botonesGaspi.set('🦍', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/ayayayay.mp3',
+  description: 'Ayayayayay'
+})
+botonesGaspi.set('🐗', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/Fiumba.mp3',
+  description: 'Fiumba'
+})
+botonesGaspi.set('✂', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/Corte.mp3',
+  description: 'Corte'
 })
 botonesGaspi.set('❌', {
   task: DisconnectBot,
