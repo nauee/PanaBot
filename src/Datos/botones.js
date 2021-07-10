@@ -239,6 +239,11 @@ botonesGaspi.set('🥟', {
   parametros: './src/Datos/Audios/BotonesGaspi/Empanadas.mp3',
   description: 'Empanadas'
 })
+botonesGaspi.set('🦒', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/CMelman.mp3',
+  description: 'C MELMAN'
+})
 botonesGaspi.set('❌', {
   task: DisconnectBot,
   parametros: undefined,
