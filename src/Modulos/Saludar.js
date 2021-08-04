@@ -15,7 +15,7 @@ const saludar = (oldState, newState, timeoutID, buenas) => {
           const dispatcher = connection.play('./src/Datos/Audios/BotonesEmpanada/Buenas.mp3', { volume: 0.5 })
           dispatcher.on('finish', () => {
             timeoutID = setTimeout(() => {
-              newState.leave()
+              newState.channel.leave()
             }, 15 * 60 * 1000)
           })
         }).catch(error => console.log(error))
