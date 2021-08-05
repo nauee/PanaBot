@@ -224,6 +224,11 @@ botonesGaspi.set('🐗', {
   parametros: './src/Datos/Audios/BotonesGaspi/Fiumba.mp3',
   description: 'Fiumba'
 })
+botonesGaspi.set('🤓', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesGaspi/ExplicoElChiste.mp3',
+  description: 'Explico el chiste'
+})
 botonesGaspi.set('✂', {
   task: PlayAudio,
   parametros: './src/Datos/Audios/BotonesGaspi/Corte.mp3',
