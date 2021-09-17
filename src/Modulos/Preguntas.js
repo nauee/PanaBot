@@ -19,19 +19,17 @@ const respuestas = [
   'y no capo'
 ]
 
-const preguntarAlBot = (message, usarTTS) => {
+export const preguntarAlBot = ({ message, configuracion }) => {
   const pregunta = message.content.split(' ', 2)
   if (!pregunta[1]) {
     message.channel.send('_Te olvidaste la pregunta master_')
   } else if (pregunta[1].startsWith('sale')) {
     message.channel.send('**_sale._**', {
-      tts: usarTTS
+      tts: configuracion.usarTTS
     })
   } else {
     message.channel.send('**_' + respuestas[Math.floor(Math.random() * respuestas.length)] + '_**', {
-      tts: usarTTS
+      tts: configuracion.usarTTS
     })
   }
 }
-
-export default preguntarAlBot

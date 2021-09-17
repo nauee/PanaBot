@@ -1,4 +1,4 @@
-const listarComandos = (message) => {
+export const listarComandos = ({ message }) => {
   message.channel.send({
     embed: {
       color: 3447003,
@@ -37,6 +37,22 @@ const listarComandos = (message) => {
         value: 'Activar/desactivar tts en ruleta y pregunta'
       },
       {
+        name: 'play',
+        value: 'Añadir una canción para reproducir'
+      },
+      {
+        name: 'skip',
+        value: 'Saltear una canción'
+      },
+      {
+        name: 'disconnect',
+        value: 'Desconectar el bot'
+      },
+      {
+        name: 'queue',
+        value: 'Mostrar la lista de reproducción'
+      },
+      {
         name: 'Comandos',
         value: 'Es lo que acabas de escribir zapato'
       }
@@ -44,5 +60,3 @@ const listarComandos = (message) => {
     }
   })
 }
-
-export default listarComandos

@@ -1,8 +1,9 @@
 import ytdl from 'ytdl-core'
 import empanadaDePolenta from '../Datos/empanadaDePolenta.js'
+import { reproducir } from '../Modulos/Musica.js'
 
-const PlayYoutube = (mensaje, user, timeoutID) => {
-  clearTimeout(timeoutID)
+const PlayYoutube = (mensaje, user, configuracion) => {
+  clearTimeout(configuracion.timeoutID)
   const canal = mensaje.channel.members.get(user.id).voice.channel
   const video = empanadaDePolenta.videos[Math.floor(Math.random() * (empanadaDePolenta.videos.length))]
   if (!canal) {
@@ -21,18 +22,27 @@ const PlayYoutube = (mensaje, user, timeoutID) => {
           }, 15 * 1000)
         })
       const url = ytdl(video.url, { filter: 'audioonly' })
-      const dispatcher = mensaje.guild.voice.connection.play(url, { volume: 0.5 })
-      dispatcher.on('finish', () => {
-        timeoutID = setTimeout(() => {
-          canal.leave()
-        }, 15 * 60 * 1000)
-      })
+      const queue = configuracion.queue
+      const serverQueue = queue.get(mensaje.guild.id)
+      const dispatcher = serverQueue ? serverQueue.connection : mensaje.guild.voice.connection
+      dispatcher
+        .play(url, { volume: 0.5 })
+        .on('finish', () => {
+          if (serverQueue) {
+            reproducir(mensaje.guild, serverQueue.songs[0], configuracion)
+          } else {
+            configuracion.timeoutID = setTimeout(() => {
+              canal.leave()
+            }, 15 * 60 * 1000)
+          }
+        })
     }).catch(error => console.log(error))
   }
+  reproducir(mensaje.guild, configuracion.queue.get(mensaje.guild.id).songs[0], configuracion)
 }
 
-const PlayAudio = (mensaje, user, timeoutID, ruta) => {
-  clearTimeout(timeoutID)
+const PlayAudio = (mensaje, user, configuracion, ruta) => {
+  clearTimeout(configuracion.timeoutID)
   const canal = mensaje.channel.members.get(user.id).voice.channel
   if (!canal) {
     mensaje.channel.send('_Metete a un canal zapato_')
@@ -43,20 +53,33 @@ const PlayAudio = (mensaje, user, timeoutID, ruta) => {
       })
   } else if (!mensaje.guild.voiceConnection) {
     canal.join().then((connection) => {
-      const dispatcher = mensaje.guild.voice.connection.play(ruta, { volume: 0.5 })
-      dispatcher.on('finish', () => {
-        timeoutID = setTimeout(() => {
-          canal.leave()
-        }, 15 * 60 * 1000)
-      })
+      const queue = configuracion.queue
+      const serverQueue = queue.get(mensaje.guild.id)
+      const dispatcher = serverQueue ? serverQueue.connection : mensaje.guild.voice.connection
+      dispatcher
+        .play(ruta, { volume: 0.5 })
+        .on('finish', () => {
+          if (serverQueue) {
+            reproducir(mensaje.guild, serverQueue.songs[0], configuracion)
+          } else {
+            configuracion.timeoutID = setTimeout(() => {
+              canal.leave()
+            }, 15 * 60 * 1000)
+          }
+        })
     }).catch(error => console.log(error))
   }
 }
 
-const DisconnectBot = (mensaje, user, timeoutID) => {
-  clearTimeout(timeoutID)
+const DisconnectBot = (mensaje, user, configuracion) => {
+  clearTimeout(configuracion.timeoutID)
   const canal = mensaje.member.voice.channel
-  if (canal) {
+  const queue = configuracion.queue
+  const serverQueue = queue.get(mensaje.guild.id)
+  if (serverQueue) {
+    serverQueue.songs = []
+    serverQueue.connection.dispatcher.end()
+  } else if (canal) {
     canal.leave()
   }
 }
