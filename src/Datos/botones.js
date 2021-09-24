@@ -278,4 +278,31 @@ botonesGaspi.set('❌', {
   description: 'Desconectar'
 })
 
-export default [botonesEmpanada, botonesGaspi]
+const botonesMomo = new Map()
+botonesMomo.set('🕺', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/Caravana.mp3',
+  description: 'Caravana'
+})
+botonesMomo.set('☎️', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/MeLlama.mp3',
+  description: 'Ella me llama'
+})
+botonesMomo.set('😡', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/MomoFortnite.mp3',
+  description: 'NOO MOMO FT'
+})
+botonesMomo.set('😤', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/MomoLOL.mp3',
+  description: 'NOO MOMO LOL'
+})
+botonesMomo.set('❌', {
+  task: DisconnectBot,
+  parametros: undefined,
+  description: 'Desconectar'
+})
+
+export default [botonesEmpanada, botonesGaspi, botonesMomo]
