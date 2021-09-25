@@ -302,12 +302,12 @@ botonesMomo.set('😤', {
 botonesMomo.set('💃🏾', {
   task: PlayAudio,
   parametros: './src/Datos/Audios/BotonesMomo/BailaMorena.mp3',
-  description: 'NOO MOMO LOL'
+  description: 'Baila morena'
 })
 botonesMomo.set('🍻', {
   task: PlayAudio,
   parametros: './src/Datos/Audios/BotonesMomo/YoTomoLicor.mp3',
-  description: 'NOO MOMO LOL'
+  description: 'Yo tomo licor'
 })
 botonesMomo.set('❌', {
   task: DisconnectBot,
