@@ -299,6 +299,16 @@ botonesMomo.set('😤', {
   parametros: './src/Datos/Audios/BotonesMomo/MomoLOL.mp3',
   description: 'NOO MOMO LOL'
 })
+botonesMomo.set('💃🏾', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/BailaMorena.mp3',
+  description: 'NOO MOMO LOL'
+})
+botonesMomo.set('🍻', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/YoTomoLicor.mp3',
+  description: 'NOO MOMO LOL'
+})
 botonesMomo.set('❌', {
   task: DisconnectBot,
   parametros: undefined,
