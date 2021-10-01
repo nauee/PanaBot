@@ -309,6 +309,21 @@ botonesMomo.set('🍻', {
   parametros: './src/Datos/Audios/BotonesMomo/YoTomoLicor.mp3',
   description: 'Yo tomo licor'
 })
+botonesMomo.set('🇧🇴', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/Boliviano.mp3',
+  description: 'Boliviano'
+})
+botonesMomo.set('🇵🇾', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/Paraguayo.mp3',
+  description: 'Paraguayo'
+})
+botonesMomo.set('🙅‍♂️', {
+  task: PlayAudio,
+  parametros: './src/Datos/Audios/BotonesMomo/Eneshei.mp3',
+  description: 'ENESHEI'
+})
 botonesMomo.set('❌', {
   task: DisconnectBot,
   parametros: undefined,
